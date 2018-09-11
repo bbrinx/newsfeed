@@ -1,0 +1,97 @@
+@font-face {
+  font-family: 'Noto Serif JP';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Noto Serif JP'), local('NotoSerifJP-Regular'), url(https://fonts.gstatic.com/s/notoserifjp/v1/xn7mYHs72GKoTvER4Gn3b5eMbNmuYA.otf) format('opentype');
+}
+@font-face {
+  font-family: 'Noto Serif KR';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Noto Serif KR'), local('NotoSerifKR-Regular'), url(https://fonts.gstatic.com/s/notoserifkr/v1/3Jn7SDn90Gmq2mr3blnHaTZXRudj1g.otf) format('opentype');
+}
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Roboto'), local('Roboto-Regular'), url(https://fonts.gstatic.com/s/roboto/v18/KFOmCnqEu92Fr1Mu4mxP.ttf) format('truetype');
+}
+h1,
+h2,
+h3 {
+  font-family: 'Noto Serif JP', sans-serif;
+}
+p,
+a {
+  font-family: 'Roboto', sans-serif;
+}
+a {
+  text-decoration: inherit;
+  color: inherit;
+}
+.newsfeed-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 20px 0px 50px 20px;
+}
+.newsfeed-header .newsfeed-title {
+  font-family: 'Roboto', sans-serif;
+}
+.newsfeed-header .menu {
+  display: flex;
+  flex-direction: row;
+}
+.newsfeed-header .menu li {
+  list-style: none;
+}
+.newsfeed-header .menu li a {
+  padding: 0 10px;
+}
+.content-wrapper {
+  width: 100%;
+}
+.content-wrapper .content {
+  width: 90%;
+  margin: 0 auto;
+}
+.content-wrapper .content .article-wrapper-link {
+  color: inherit;
+  text-decoration: inherit;
+}
+.content-wrapper .content .article-wrapper-link .article-wrapper {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 50px;
+}
+.content-wrapper .content .article-wrapper-link .article-wrapper .article-info {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 0 20px;
+}
+.content-wrapper .content .article-wrapper-link .article-wrapper .article-info .article-title {
+  font-family: 'Noto Serif KR', sans-serif;
+  font-family: 'Noto Serif JP', sans-serif;
+  font-size: 24px;
+  margin-top: 0;
+  padding-bottom: 15px;
+  border-bottom: 3px solid #222;
+}
+.content-wrapper .content .article-wrapper-link .article-wrapper .article-info .article-description {
+  font-size: 16px;
+}
+.content-wrapper .content .article-wrapper-link .article-wrapper .article-image-container {
+  flex: 1.5;
+  padding: 0 20px;
+}
+.content-wrapper .content .article-wrapper-link .article-wrapper .article-image-container .article-image {
+  width: 100%;
+}
+.video {
+  width: 80%;
+  margin: 0 auto;
+}
+.video .video-react {
+  outline: 0;
+}
