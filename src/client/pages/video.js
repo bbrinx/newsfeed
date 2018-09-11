@@ -35,13 +35,11 @@ class Video extends Component {
         {this.state.videos.map((video, index) => (
           <div className="video" key={index}>
             <h2>{video.title}</h2>
-            <Player
-              playsInline
-              poster={video.image}
-              src={video.link} 
-            >
-              <BigPlayButton position="center" />
-            </Player>
+            <div className="video-player">
+              <Player poster={video.image} src={video.link}>
+                <BigPlayButton position="center" />
+              </Player>
+            </div>
           </div>
         ))}
       </div>
