@@ -6,7 +6,7 @@ class Spiegel {
   
   async get_top() {
     const url = 'http://www.spiegel.de/schlagzeilen/tops/index.rss';
-    return parser.parseRss(url);
+    return parser.parseRss(url, 'Spiegel');
   };
 
 }

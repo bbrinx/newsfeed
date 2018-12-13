@@ -6,9 +6,10 @@ class Articles extends Component {
     return (
       <div className="articles">
         {this.props.articles.map((article, index) => (
-          <a className="article-wrapper-link" href={article.link} key={index}>
+          <a className="article-wrapper-link" href={article.link} key={index} rel="noopener noreferrer" target="_blank">
             <div className="article-wrapper">
             <div className="article-info">
+              <p className="article-publisher">{article.publisher}</p>
               <h3 className="article-title">{article.title}</h3>
               <p className="article-description">{article.content}</p>
             </div>

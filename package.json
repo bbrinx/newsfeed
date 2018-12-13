@@ -28,6 +28,7 @@
     "concurrently": "^4.0.1",
     "css-loader": "^1.0.0",
     "dotenv": "^6.0.0",
+    "event-stream": "3.3.4",
     "express": "^4.16.3",
     "less": "^3.8.1",
     "less-loader": "^4.1.0",

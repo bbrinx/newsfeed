@@ -30,7 +30,7 @@ const init = async () => {
       const spiegel_feed = await spiegel.get_top()
       const nytimes_feed = await nytimes.get_top()
       const articles = spiegel_feed.concat(nytimes_feed)
-      res.send(articles)
+      res.send(nytimes_feed)
     } catch(err) {
       console.log(err)
     }
@@ -85,7 +85,7 @@ const cache = (duration) => {
     } else {
       res.sendResponse = res.send
       res.send = (body) => {
-        mcache.put(key, body, duration * 10000)
+        mcache.put(key, body, duration * 100000)
         res.sendResponse(body) 
       }
       next()

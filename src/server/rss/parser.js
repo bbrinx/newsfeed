@@ -7,12 +7,13 @@ const rssParser = new RssParser();
 
 class Parser {
   
-  async parseRss(rss) {
+  async parseRss(rss, publisher) {
     const res = await rssParser.parseURL(rss);
     const feed = res.items.slice(0, 5).filter(item => item.title !== '').map(async (item) => {
       const body = await this.getContent(item.guid)
       const imageUrl = this.getImageUrl(body)
       return {
+        publisher: publisher,
         title: item.title,
         content: item.content,
         link: item.guid,
