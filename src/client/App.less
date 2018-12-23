@@ -13,6 +13,10 @@ h1,h2,h3 {
   font-family: 'Noto Serif JP', sans-serif;
 }
 
+h2 {
+  font-size: 32px;
+}
+
 p,a {
   font-family: 'Roboto', sans-serif;
 }
@@ -139,38 +143,75 @@ a {
       width: 90%;
       // max-width: 900px;
       margin: 0 auto;
-  
-      .article-wrapper-link {
-  
-        .article-wrapper {
-          flex-direction: row;
-  
-          .article-info {
-            flex: 1;
-            padding: 0 20px;
-  
-            .article-title {
-              margin: revert;
-              margin-top: 0;
-              padding-bottom: 15px;
-              border-bottom: 3px solid #222;
+
+      .publisher {
+        h2 {
+          text-align: center;
+          margin: 5% 0;
+          span {
+            display: inline-block;
+            position: relative;  
+            &:before, &:after {
+              content: "";
+              position: absolute;
+              height: 0px;
+              border-bottom: 1px solid black;
+              border-top: 1px solid black;
+              top: 50%;
+              width: 200px;
             }
-            
-            .article-description {
-              font-size: 16px;
-              margin: revert;
+            &:before {
+              right: 100%;
+              margin-right: 15px;
             }
-          }
-    
-          .article-image-container {
-            flex: 1.5;
-            padding: 0 20px;
-  
-            .article-image {
+            &:after {
+              left: 100%;
+              margin-left: 15px;
             }
           }
         }
-      }  
+
+        .article-list {
+          display: flex;
+          flex-wrap: wrap;
+    
+          .article-wrapper-link {
+            flex-basis: 100%;
+            &.no-image {
+              flex-basis: 50%;
+            }
+      
+            .article-wrapper {
+              flex-direction: row;
+      
+              .article-info {
+                flex: 1;
+                padding: 0 20px 0 0;
+      
+                .article-title {
+                  margin: revert;
+                  margin-top: 0;
+                  padding-bottom: 15px;
+                  border-bottom: 3px solid #222;
+                }
+                
+                .article-description {
+                  font-size: 16px;
+                  margin: revert;
+                }
+              }
+        
+              .article-image-container {
+                flex: 1.5;
+                padding: 0 0 0 20px;
+  
+                .article-image {
+                }
+              }
+            }
+          }  
+        }
+      }
     }
   }
   

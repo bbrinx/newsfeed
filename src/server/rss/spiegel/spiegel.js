@@ -6,7 +6,8 @@ class Spiegel {
   
   async get_top() {
     const url = 'http://www.spiegel.de/schlagzeilen/tops/index.rss';
-    return parser.parseRss(url, 'Spiegel');
+    const articles = await parser.parseRss(url);
+    return {publisher: 'Spiegel', articles: articles}
   };
 
 }

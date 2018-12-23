@@ -5,7 +5,8 @@ class Nytimes {
   
   async get_top() {
     const url = 'https://www.nytimes.com/services/xml/rss/nyt/HomePage.xml';
-    return parser.parseRss(url, 'New York Times');
+    const articles = await parser.parseRss(url);
+    return {publisher: 'New York Times', articles: articles}
   };
 
 }

@@ -1,12 +1,10 @@
 const RssParser = require('rss-parser');
-const axios = require('axios');
-const cheerio = require('cheerio');
+const Parser = require('../parser')
 
 const rssParser = new RssParser();
 
+class SueddeutscheParser extends Parser {
 
-class Parser {
-  
   async parseRss(rss) {
     const res = await rssParser.parseURL(rss);
     const feed = res.items.slice(0, 5).filter(item => item.title !== '').map(async (item) => {
@@ -14,7 +12,7 @@ class Parser {
       const imageUrl = this.getImageUrl(htmlBody)
       return {
         title: item.title,
-        content: item.content,
+        content: item.contentSnippet,
         link: item.link,
         image: imageUrl,
         date: item.isoDate,
@@ -22,23 +20,14 @@ class Parser {
     });
     return await Promise.all(feed);
   };
-
-  async getContent(articleUrl) {
+  
+  getImageUrl($) {
     try {
-      const body = await axios.get(articleUrl)
-      return cheerio.load(body.data);
-    } catch(err) {
-      console.log(err);
-    }
-  };
-
-  async getImageUrl($) {
-    try {
-      return $('figure').find('img').attr('src');
+      return $('.asset-image__image-tag').attr('srcset').split(', ').slice(-1)[0].split(' ')[0];
     } catch(err) {
       console.log(err)
     }
   };
 }
 
-module.exports = Parser;
+module.exports = SueddeutscheParser;

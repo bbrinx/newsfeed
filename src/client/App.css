@@ -8,7 +8,7 @@
   font-family: 'Noto Serif KR';
   font-style: normal;
   font-weight: 400;
-  src: local('Noto Serif KR'), local('NotoSerifKR-Regular'), url(https://fonts.gstatic.com/s/notoserifkr/v1/3Jn7SDn90Gmq2mr3blnHaTZXRudj1g.otf) format('opentype');
+  src: local('Noto Serif KR'), local('NotoSerifKR-Regular'), url(https://fonts.gstatic.com/s/notoserifkr/v3/3Jn7SDn90Gmq2mr3blnHaTZXRudj1g.otf) format('opentype');
 }
 @font-face {
   font-family: 'Roboto';
@@ -23,6 +23,9 @@ h1,
 h2,
 h3 {
   font-family: 'Noto Serif JP', sans-serif;
+}
+h2 {
+  font-size: 32px;
 }
 p,
 a {
@@ -122,26 +125,62 @@ a.active {
     width: 90%;
     margin: 0 auto;
   }
-  .content-wrapper .content .article-wrapper-link .article-wrapper {
+  .content-wrapper .content .publisher h2 {
+    text-align: center;
+    margin: 5% 0;
+  }
+  .content-wrapper .content .publisher h2 span {
+    display: inline-block;
+    position: relative;
+  }
+  .content-wrapper .content .publisher h2 span:before,
+  .content-wrapper .content .publisher h2 span:after {
+    content: "";
+    position: absolute;
+    height: 0px;
+    border-bottom: 1px solid black;
+    border-top: 1px solid black;
+    top: 50%;
+    width: 200px;
+  }
+  .content-wrapper .content .publisher h2 span:before {
+    right: 100%;
+    margin-right: 15px;
+  }
+  .content-wrapper .content .publisher h2 span:after {
+    left: 100%;
+    margin-left: 15px;
+  }
+  .content-wrapper .content .publisher .article-list {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .content-wrapper .content .publisher .article-list .article-wrapper-link {
+    flex-basis: 100%;
+  }
+  .content-wrapper .content .publisher .article-list .article-wrapper-link.no-image {
+    flex-basis: 50%;
+  }
+  .content-wrapper .content .publisher .article-list .article-wrapper-link .article-wrapper {
     flex-direction: row;
   }
-  .content-wrapper .content .article-wrapper-link .article-wrapper .article-info {
+  .content-wrapper .content .publisher .article-list .article-wrapper-link .article-wrapper .article-info {
     flex: 1;
-    padding: 0 20px;
+    padding: 0 20px 0 0;
   }
-  .content-wrapper .content .article-wrapper-link .article-wrapper .article-info .article-title {
+  .content-wrapper .content .publisher .article-list .article-wrapper-link .article-wrapper .article-info .article-title {
     margin: revert;
     margin-top: 0;
     padding-bottom: 15px;
     border-bottom: 3px solid #222;
   }
-  .content-wrapper .content .article-wrapper-link .article-wrapper .article-info .article-description {
+  .content-wrapper .content .publisher .article-list .article-wrapper-link .article-wrapper .article-info .article-description {
     font-size: 16px;
     margin: revert;
   }
-  .content-wrapper .content .article-wrapper-link .article-wrapper .article-image-container {
+  .content-wrapper .content .publisher .article-list .article-wrapper-link .article-wrapper .article-image-container {
     flex: 1.5;
-    padding: 0 20px;
+    padding: 0 0 0 20px;
   }
   .video {
     width: 80%;

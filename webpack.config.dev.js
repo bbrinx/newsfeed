@@ -21,6 +21,7 @@ module.exports = {
     },
     hot: true,
     contentBase: path.resolve(__dirname, 'app'),
+    headers: { 'Access-Control-Allow-Origin': '*' },
     historyApiFallback: true,
   },
 

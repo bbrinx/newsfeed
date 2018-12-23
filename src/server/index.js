@@ -3,6 +3,9 @@ const http = require('http')
 const path = require('path')
 const express = require('express')
 const mcache = require('memory-cache')
+const Sueddeutsche = require('./rss/sueddeutsche/sueddeutsche')
+const WashingtonPost = require('./rss/washingtonPost/washingtonPost')
+const NeuesDeutschland = require('./rss/neuesDeutschland/neuesDeutschland')
 const Spiegel = require('./rss/spiegel/spiegel')
 const Nytimes = require('./rss/nytimes/nytimes')
 const Tagesschau = require('./rss/tagesschau/tagesschau')
@@ -12,6 +15,9 @@ const init = async () => {
   const app = express()
   const server = http.Server(app)
   const spiegel = new Spiegel()
+  const washingtonPost = new WashingtonPost()
+  const sueddeutsche = new Sueddeutsche()
+  const neuesDeutschland = new NeuesDeutschland()
   const nytimes = new Nytimes()
   const tagesschau = new Tagesschau()
   const kicker = new Kicker()
@@ -27,10 +33,13 @@ const init = async () => {
 
   app.get('/api/getRssFeed', cache(10), async (req, res) => {
     try {
+      const sueddeutsche_feed = await sueddeutsche.get_top()
+      const washingtonPost_feed = await washingtonPost.get_top()
+      const neuesDeutschland_feed = await neuesDeutschland.get_top()
       const spiegel_feed = await spiegel.get_top()
       const nytimes_feed = await nytimes.get_top()
-      const articles = spiegel_feed.concat(nytimes_feed)
-      res.send(nytimes_feed)
+      const articles = [sueddeutsche_feed, washingtonPost_feed, neuesDeutschland_feed, spiegel_feed, nytimes_feed]
+      res.send(articles)
     } catch(err) {
       console.log(err)
     }
@@ -54,6 +63,21 @@ const init = async () => {
 
   app.get('/api/nytimes', async (req, res) => {
     const articles = await nytimes.get_top()
+    res.send(articles)
+  })
+
+  app.get('/api/sueddeutsche', async (req, res) => {
+    const articles = await sueddeutsche.get_top()
+    res.send(articles)
+  })
+
+  app.get('/api/washingtonPost', async (req, res) => {
+    const articles = await washingtonPost.get_top()
+    res.send(articles)
+  })
+
+  app.get('/api/neuesDeutschland', async (req, res) => {
+    const articles = await neuesDeutschland.get_top()
     res.send(articles)
   })
 
