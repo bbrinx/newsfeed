@@ -2,7 +2,7 @@
 Simple Newsfeed is a responsive rss reader with minimal design. This is a personal hobby project and I am continuously working on it and adding features.
 It can be viewed on Heroku at http://simple-newsfeed.herokuapp.com
 
-<img src="mockup.png" align="center" />
+<img src="media/mockup.png" align="center" />
 
 # Motivation
 Reading the news in the morning can be overwhelming, distracting and stressful. 
