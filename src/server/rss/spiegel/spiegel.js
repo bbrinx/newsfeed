@@ -10,6 +10,12 @@ class Spiegel {
     return {publisher: 'Spiegel', articles: articles}
   };
 
+  async get_soccer() {
+    const url = 'http://www.spiegel.de/sport/fussball/index.rss';
+    const articles = await parser.parseRss(url);
+    return {publisher: 'Spiegel', articles: articles}
+  };
+
 }
 
 module.exports = Spiegel;

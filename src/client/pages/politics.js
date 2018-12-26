@@ -21,7 +21,7 @@ class Politics extends Component {
 
   async callApi() {
     for (const newspaper of this.state.newspapers) {
-      const response = await fetch(`/api/${newspaper}`);
+      const response = await fetch(`/api/politics/${newspaper}`);
       const body = await response.json();
       if (response.status !== 200) throw Error(body.message);
       this.setState({ feed: [...this.state.feed, body] })

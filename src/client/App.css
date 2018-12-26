@@ -62,31 +62,35 @@ a.active {
 .content-wrapper {
   width: 100%;
 }
-.content-wrapper .content .article-wrapper-link {
+.content-wrapper .content .publisher h2 {
+  text-align: center;
+  margin: 5% 0;
+}
+.content-wrapper .content .publisher .article-wrapper-link {
   color: inherit;
   text-decoration: inherit;
 }
-.content-wrapper .content .article-wrapper-link .article-wrapper {
+.content-wrapper .content .publisher .article-wrapper-link .article-wrapper {
   display: flex;
   flex-direction: column-reverse;
   margin-bottom: 50px;
 }
-.content-wrapper .content .article-wrapper-link .article-wrapper .article-info {
+.content-wrapper .content .publisher .article-wrapper-link .article-wrapper .article-info {
   display: flex;
   flex-direction: column;
   padding: 20px;
 }
-.content-wrapper .content .article-wrapper-link .article-wrapper .article-info .article-title {
+.content-wrapper .content .publisher .article-wrapper-link .article-wrapper .article-info .article-title {
   font-family: 'Noto Serif KR', sans-serif;
   font-family: 'Noto Serif JP', sans-serif;
   font-size: 24px;
   margin: 0;
 }
-.content-wrapper .content .article-wrapper-link .article-wrapper .article-info .article-description {
+.content-wrapper .content .publisher .article-wrapper-link .article-wrapper .article-info .article-description {
   font-size: 18px;
   margin-top: 10px;
 }
-.content-wrapper .content .article-wrapper-link .article-wrapper .article-image-container .article-image {
+.content-wrapper .content .publisher .article-wrapper-link .article-wrapper .article-image-container .article-image {
   width: 100%;
 }
 .video {

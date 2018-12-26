@@ -47,7 +47,7 @@ const init = async () => {
 
   app.get('/api/getSports', cache(10), async (req, res) => {
     try {
-      const bundesliga = await tagesschau.getSoccer()
+      const bundesliga = await tagesschau.get_soccer()
       const bayern =  await kicker.get_bayern()
       const articles = bundesliga.concat(bayern)
       res.send(articles)
@@ -56,34 +56,39 @@ const init = async () => {
     }
   })
 
-  app.get('/api/spiegel', async (req, res) => {
+  app.get('/api/politics/spiegel', cache(10), async (req, res) => {
     const articles = await spiegel.get_top()
     res.send(articles)
   })
 
-  app.get('/api/nytimes', async (req, res) => {
+  app.get('/api/politics/nytimes', cache(10), async (req, res) => {
     const articles = await nytimes.get_top()
     res.send(articles)
   })
 
-  app.get('/api/sueddeutsche', async (req, res) => {
+  app.get('/api/politicssueddeutsche', cache(10), async (req, res) => {
     const articles = await sueddeutsche.get_top()
     res.send(articles)
   })
 
-  app.get('/api/washingtonPost', async (req, res) => {
+  app.get('/api/politicswashingtonPost', cache(10), async (req, res) => {
     const articles = await washingtonPost.get_top()
     res.send(articles)
   })
 
-  app.get('/api/neuesDeutschland', async (req, res) => {
-    const articles = await neuesDeutschland.get_top()
+  app.get('/api/tagesschauVideo', cache(10), async (req, res) => {
+    const video = await tagesschau.get_video()
+    res.send(video)
+  })
+
+  app.get('/api/sports/spiegel', cache(10), async (req, res) => {
+    const articles = await spiegel.get_soccer()
     res.send(articles)
   })
 
-  app.get('/api/tagesschauVideo', cache(10), async (req, res) => {
-    const video = await tagesschau.getVideo()
-    res.send(video)
+  app.get('/api/sports/kicker', cache(10), async (req, res) => {
+    const articles = await kicker.get_bundesliga()
+    res.send(articles)
   })
 
   app.get('/', (req, res) => {

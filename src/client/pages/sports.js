@@ -5,32 +5,32 @@ class Sports extends Component {
   constructor() {
     super();
     this.state = {
-      articles: []
+      feed: [],
+      newspapers: ['kicker', 'spiegel']
     };
   }
 
-  async componentDidMount() {
+
+  componentDidMount() {
     try {
-      const res = await this.callApi()
-      this.setState({ articles: res })
+      this.callApi()
     } catch(err) {
       console.log(err)
     }
   }
 
   async callApi() {
-    const response = await fetch('/api/getSports');
-    const body = await response.json();
-
-    if (response.status !== 200) throw Error(body.message);
-
-    console.log(body)
-    return body;
+    for (const newspaper of this.state.newspapers) {
+      const response = await fetch(`/api/sports/${newspaper}`);
+      const body = await response.json();
+      if (response.status !== 200) throw Error(body.message);
+      this.setState({ feed: [...this.state.feed, body] })
+    }
   }
 
   render() {
     return (
-      <Articles articles={this.state.articles}/>
+      <Articles feed={this.state.feed}/>   
     );
   }
 }
