@@ -66,12 +66,12 @@ const init = async () => {
     res.send(articles)
   })
 
-  app.get('/api/politicssueddeutsche', cache(10), async (req, res) => {
+  app.get('/api/politics/sueddeutsche', cache(10), async (req, res) => {
     const articles = await sueddeutsche.get_top()
     res.send(articles)
   })
 
-  app.get('/api/politicswashingtonPost', cache(10), async (req, res) => {
+  app.get('/api/politics/washingtonPost', cache(10), async (req, res) => {
     const articles = await washingtonPost.get_top()
     res.send(articles)
   })
