@@ -10,6 +10,7 @@ const Spiegel = require('./rss/spiegel/spiegel')
 const Nytimes = require('./rss/nytimes/nytimes')
 const Tagesschau = require('./rss/tagesschau/tagesschau')
 const Kicker = require('./rss/kicker/kicker')
+const ElfFreunde = require('./rss/elfFreunde/elfFreunde')
 
 const init = async () => {
   const app = express()
@@ -21,6 +22,7 @@ const init = async () => {
   const nytimes = new Nytimes()
   const tagesschau = new Tagesschau()
   const kicker = new Kicker()
+  const elfFreunde = new ElfFreunde()
 
   const port = process.env.PORT || 8080
 
@@ -88,6 +90,11 @@ const init = async () => {
 
   app.get('/api/sports/kicker', cache(10), async (req, res) => {
     const articles = await kicker.get_bundesliga()
+    res.send(articles)
+  })
+
+  app.get('/api/sports/elfFreunde', cache(10), async (req, res) => {
+    const articles = await elfFreunde.get_all()
     res.send(articles)
   })
 

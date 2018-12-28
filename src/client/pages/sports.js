@@ -6,7 +6,7 @@ class Sports extends Component {
     super();
     this.state = {
       feed: [],
-      newspapers: ['kicker', 'spiegel']
+      newspapers: ['kicker', 'spiegel', 'elfFreunde']
     };
   }
 
