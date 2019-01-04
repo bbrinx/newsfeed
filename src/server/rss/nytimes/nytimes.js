@@ -3,7 +3,7 @@ const parser = new Parser()
 
 class Nytimes {
   
-  async get_top() {
+  async getTop() {
     const url = 'https://www.nytimes.com/services/xml/rss/nyt/HomePage.xml';
     const articles = await parser.parseRss(url);
     return {publisher: 'New York Times', articles: articles}

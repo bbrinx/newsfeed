@@ -1,6 +1,6 @@
 const Parser = require('../parser')
 
-class ElfFreundeParser extends Parser {
+class TransfermarktParser extends Parser {
   
   getImageUrl($) {
     try {
@@ -8,7 +8,7 @@ class ElfFreundeParser extends Parser {
     } catch(err) {
       console.log(err)
     }
-  }
+  };
 }
 
-module.exports = ElfFreundeParser;
+module.exports = TransfermarktParser;

@@ -116,6 +116,31 @@ a {
   }
 }
 
+.standings {
+  width: 50%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  .match {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    .team {
+      flex: 3;
+      &.home {
+        text-align: right;
+      }
+      &.away {
+        text-align: left;
+      }
+    }
+    .results {
+      flex: 1;
+      text-align: center;
+    }
+  }
+}
+
 @media @laptops {
 
   .newsfeed-header {

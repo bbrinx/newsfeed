@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import Articles from '../components/articles'
+import Standings from '../components/standings'
 
 class Sports extends Component {
   constructor() {
     super();
     this.state = {
       feed: [],
-      newspapers: ['kicker', 'spiegel', 'elfFreunde']
+      newspapers: ['kicker', 'spiegel', 'elfFreunde', 'transfermarkt'],
+      standings: [],
     };
   }
 
@@ -20,6 +22,10 @@ class Sports extends Component {
   }
 
   async callApi() {
+    const response = await fetch(`/api/sports/data/next-games`); 
+    const body = await response.json();
+    if (response.status !== 200) throw Error(response.message);
+    this.setState({ standings: body.matches })
     for (const newspaper of this.state.newspapers) {
       const response = await fetch(`/api/sports/${newspaper}`);
       const body = await response.json();
@@ -30,7 +36,10 @@ class Sports extends Component {
 
   render() {
     return (
-      <Articles feed={this.state.feed}/>   
+      <div>
+        <Standings data={this.state.standings}/>
+        <Articles feed={this.state.feed}/>   
+      </div>
     );
   }
 }

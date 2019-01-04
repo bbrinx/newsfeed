@@ -1,18 +1,18 @@
 const Parser = require('./parser')
 const parser = new Parser()
 
-class ElfFreunde {
+class Transfermarkt {
   
   async getAll() {
-    const url = 'https://www.11freunde.de/feed';
+    const url = 'http://www.transfermarkt.de/rss/news';
     return this.send(url);
   };
 
   async send(url){
     const articles = await parser.parseRss(url);
-    return {publisher: '11Freunde', articles: articles}
+    return {publisher: 'Transfermarkt', articles: articles}
   } 
 
 }
 
-module.exports = ElfFreunde;
+module.exports = Transfermarkt;

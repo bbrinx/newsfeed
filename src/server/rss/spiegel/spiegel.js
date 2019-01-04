@@ -4,13 +4,13 @@ const parser = new Parser()
 
 class Spiegel {
   
-  async get_top() {
+  async getTop() {
     const url = 'http://www.spiegel.de/schlagzeilen/tops/index.rss';
     const articles = await parser.parseRss(url);
     return {publisher: 'Spiegel', articles: articles}
   };
 
-  async get_soccer() {
+  async getSoccer() {
     const url = 'http://www.spiegel.de/sport/fussball/index.rss';
     const articles = await parser.parseRss(url);
     return {publisher: 'Spiegel', articles: articles}

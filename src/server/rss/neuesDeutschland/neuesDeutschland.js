@@ -4,7 +4,7 @@ const parser = new Parser()
 
 class NeuesDeutschland {
   
-  async get_top() {
+  async getTop() {
     const url = 'https://www.neues-deutschland.de/rss/neues-deutschland.xml';
     const articles = await parser.parseRss(url);
     return {publisher: 'Neues Deutschland', articles: articles}

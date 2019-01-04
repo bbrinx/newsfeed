@@ -4,6 +4,7 @@ import Header from './components/header'
 import Politics from './pages/politics'
 import Sports from './pages/sports'
 import Video from './pages/video'
+import Architecture from './pages/architecture'
 import './App.css';
 
 class App extends Component {
@@ -18,6 +19,7 @@ class App extends Component {
             <Route path="/politics" component={Politics} />
             <Route path="/sports" component={Sports} />
             <Route path="/video" component={Video} />
+            <Route path="/architecture" component={Architecture} />
           </div>
         </div>
       </div>

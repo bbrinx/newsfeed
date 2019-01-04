@@ -4,7 +4,7 @@ const parser = new Parser()
 
 class WashingtonPost {
   
-  async get_top() {
+  async getTop() {
     const url = 'http://feeds.washingtonpost.com/rss/politics';
     const articles = await parser.parseRss(url);
     return {publisher: 'Washington Post', articles: articles};

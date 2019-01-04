@@ -102,6 +102,30 @@ a.active {
 .video .video-player .video-react {
   outline: 0;
 }
+.standings {
+  width: 50%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+.standings .match {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.standings .match .team {
+  flex: 3;
+}
+.standings .match .team.home {
+  text-align: right;
+}
+.standings .match .team.away {
+  text-align: left;
+}
+.standings .match .results {
+  flex: 1;
+  text-align: center;
+}
 @media only screen and (min-width: 1200px) and (max-width: 1600px) {
   .newsfeed-header {
     display: flex;

@@ -11,6 +11,7 @@ class Header extends Component {
           <ul className="menu">
             <li><NavLink to="/politics">Politics</NavLink></li>
             <li><NavLink to="/sports">Sports</NavLink></li>
+            <li><NavLink to="/architecture">Architecture</NavLink></li>
           </ul>
         </nav>
       </header>

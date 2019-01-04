@@ -3,12 +3,12 @@ const parser = new Parser()
 
 class Kicker {
   
-  async get_soccer() {
+  async getSoccer() {
     const url = 'http://rss.kicker.de/news/fussball';
     return this.send(url);
   };
 
-  async get_bundesliga() {
+  async getBundesliga() {
     const url = 'http://rss.kicker.de/news/bundesliga';
     return this.send(url);
   };
