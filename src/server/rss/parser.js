@@ -8,19 +8,23 @@ const rssParser = new RssParser();
 class Parser {
   
   async parseRss(rss) {
-    const res = await rssParser.parseURL(rss);
-    const feed = res.items.slice(0, 5).filter(item => item.title !== '').map(async (item) => {
-      const htmlBody = await this.getContent(item.link)
-      const imageUrl = this.getImageUrl(htmlBody)
-      return {
-        title: item.title,
-        content: item.content,
-        link: item.link,
-        image: imageUrl,
-        date: item.isoDate,
-      };
-    });
-    return await Promise.all(feed);
+    try {
+      const res = await rssParser.parseURL(rss)
+      const feed = res.items.slice(0, 5).filter(item => item.title !== '').map(async (item) => {
+        const htmlBody = await this.getContent(item.link)
+        const imageUrl = await this.getImageUrl(htmlBody)
+        return {
+          title: item.title,
+          content: item.content,
+          link: item.link,
+          image: imageUrl,
+          date: item.isoDate,
+        };
+      });
+      return await Promise.all(feed);
+    } catch(err) {
+      console.log(err)
+    }
   };
 
   async getContent(articleUrl) {

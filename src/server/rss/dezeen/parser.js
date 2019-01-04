@@ -35,7 +35,9 @@ class DezeenParser extends Parser {
   getImageUrl(htmlTag) {
     try {
       const $ = cheerio.load(htmlTag)
-      return $('img').attr('srcset').split(', ').slice(-1)[0].split(' ')[0]
+      const imageSrcset =  $('img').attr('srcset')
+      const imageUrl = imageSrcset ? imageSrcset.split(', ').slice(-1)[0].split(' ')[0] : null
+      return imageUrl
     } catch(err) {
       console.log(err)
     }

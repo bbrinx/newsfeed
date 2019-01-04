@@ -24,7 +24,6 @@ class Architecture extends Component {
       try {
         const response = await fetch(`/api/architecture/${newspaper}`)
         const body = await response.json()
-        console.log(body)
         if (response.status !== 200) throw Error(body.message)
         this.setState({ feed: [...this.state.feed, body] })
       } catch(err) {

@@ -4,7 +4,7 @@ class TransfermarktParser extends Parser {
   
   getImageUrl($) {
     try {
-      return $('article').find('img').attr('src');
+      return $('article').find('img').attr('src')
     } catch(err) {
       console.log(err)
     }

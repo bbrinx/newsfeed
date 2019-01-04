@@ -6,7 +6,7 @@ class ElfFreundeParser extends Parser {
     try {
       return $('article').find('img').attr('src');
     } catch(err) {
-      console.log(err)
+      console.log(`11Freunde: ${err}`)
     }
   }
 }

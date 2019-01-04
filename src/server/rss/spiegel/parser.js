@@ -6,7 +6,7 @@ class SpiegelParser extends Parser {
     try {
       return $('#js-article-top-wide-asset').find('img').attr('src');
     } catch(err) {
-      console.log(err)
+      console.log(`Spiegel: ${err}`)
     }
   };
 }

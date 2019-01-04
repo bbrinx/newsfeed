@@ -8,7 +8,6 @@ class FootballData {
       const url = `http://api.football-data.org/v2/competitions/BL1/matches?matchday=${matchday}`
       const response = await this.call(url)
       const data = response.data
-      console.log(data)
       return data
     } catch(err) {
       console.log(err)

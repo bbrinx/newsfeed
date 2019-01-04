@@ -4,9 +4,10 @@ class KickerParser extends Parser {
   
   getImageUrl($) {
     try {
-      return $('.img-r,.img-l').find('a').attr('href');
+      const anchor = $('.img-r,.img-l').find('a')
+      return anchor ? anchor.attr('href') : null
     } catch(err) {
-      console.log(err)
+      console.log(`Kicker: ${err}`)
     }
   };
 }

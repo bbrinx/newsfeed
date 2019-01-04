@@ -23,7 +23,9 @@ class SueddeutscheParser extends Parser {
   
   getImageUrl($) {
     try {
-      return $('.asset-image__image-tag').attr('srcset').split(', ').slice(-1)[0].split(' ')[0];
+      const imageSrcset = $('.asset-image__image-tag').attr('srcset')
+      const imageUrl = imageSrcset ? imageSrcset.split(', ').slice(-1)[0].split(' ')[0] : null
+      return imageUrl
     } catch(err) {
       console.log(err)
     }
