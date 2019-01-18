@@ -10,6 +10,7 @@ class Header extends Component {
         <nav>
           <ul className="menu">
             <li><NavLink to="/politics">Politics</NavLink></li>
+            <li><NavLink to="/germany">Germany</NavLink></li>
             <li><NavLink to="/sports">Sports</NavLink></li>
             <li><NavLink to="/architecture">Architecture</NavLink></li>
           </ul>

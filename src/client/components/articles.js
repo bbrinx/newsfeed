@@ -6,7 +6,6 @@ class Articles extends Component {
     return (
       <div className="articles">
         {this.props.feed.map((publisher, index) => {
-          console.log(publisher)
           return (
             <div className="publisher" key={index}>
               <h2><span>{publisher.publisher}</span></h2>
@@ -21,7 +20,7 @@ class Articles extends Component {
                         </div>
                         {article.image ? (
                           <div className="article-image-container">
-                            <img className="article-image" src={article.image}/>
+                            <img className="article-image" srcSet={article.image}/>
                           </div>
                         ) : null}
                       </div>

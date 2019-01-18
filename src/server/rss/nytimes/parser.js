@@ -4,7 +4,8 @@ class NytimesParser extends Parser {
   
   getImageUrl($) {
     try {
-      return $('figure').find('img').attr('src');
+      const imageSrcset = $('figure').find('img').attr('srcset')
+      return imageSrcset
     } catch(err) {
       console.log(err)
     }

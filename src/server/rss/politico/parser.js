@@ -1,10 +1,11 @@
 const Parser = require('../parser')
 
-class WashingtonPostParser extends Parser {
+
+class PoliticoParser extends Parser {
   
   getImageUrl($) {
     try {
-      const imageUrl = $('.inline-photo').find('img').attr('data-raw-src')
+      const imageUrl = $('picture').find('source').attr('srcset')
       return imageUrl ? imageUrl : null
     } catch(err) {
       console.log(err)
@@ -12,4 +13,6 @@ class WashingtonPostParser extends Parser {
   };
 }
 
-module.exports = WashingtonPostParser;
+
+
+module.exports = PoliticoParser;

@@ -2,7 +2,7 @@
   font-family: 'Noto Serif JP';
   font-style: normal;
   font-weight: 400;
-  src: local('Noto Serif JP'), local('NotoSerifJP-Regular'), url(https://fonts.gstatic.com/s/notoserifjp/v3/xn7mYHs72GKoTvER4Gn3b5eMbNmuYA.otf) format('opentype');
+  src: local('Noto Serif JP'), local('NotoSerifJP-Regular'), url(https://fonts.gstatic.com/s/notoserifjp/v4/xn7mYHs72GKoTvER4Gn3b5eMbNmuYA.otf) format('opentype');
 }
 @font-face {
   font-family: 'Noto Serif KR';
@@ -93,17 +93,8 @@ a.active {
 .content-wrapper .content .publisher .article-wrapper-link .article-wrapper .article-image-container .article-image {
   width: 100%;
 }
-.video {
-  width: 100%;
-}
-.video h2 {
-  padding: 0 5%;
-}
-.video .video-player .video-react {
-  outline: 0;
-}
 .standings {
-  width: 50%;
+  width: 90%;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -210,8 +201,7 @@ a.active {
     flex: 1.5;
     padding: 0 0 0 20px;
   }
-  .video {
-    width: 80%;
-    margin: 0 auto;
+  .content-wrapper .content .standings {
+    width: 50%;
   }
 }

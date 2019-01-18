@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import Articles from '../components/articles'
 
-class Politics extends Component {
+class Germany extends Component {
   constructor() {
     super();
     this.state = {
       feed: [],
-      newspapers: ['nytimes', 'washingtonPost', 'fiveThirtyEight', 'politico']
+      newspapers: ['spiegel', 'sueddeutsche' ,'neuesDeutschland']
     };
   }
 
@@ -22,7 +22,7 @@ class Politics extends Component {
   async callApi() {
     for (const newspaper of this.state.newspapers) {
       try {
-        const response = await fetch(`/api/politics/${newspaper}`)
+        const response = await fetch(`/api/germany/${newspaper}`)
         const body = await response.json()
         if (response.status !== 200) throw Error(body.message)
         this.setState({ feed: [...this.state.feed, body] })
@@ -39,4 +39,4 @@ class Politics extends Component {
   }
 }
 
-export default Politics;
+export default Germany;

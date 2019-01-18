@@ -14,6 +14,8 @@ const ElfFreunde = require('./rss/elfFreunde/elfFreunde')
 const Transfermarkt = require('./rss/transfermarkt/transfermarkt')
 const ArchDaily = require('./rss/archDaily/archDaily')
 const Dezeen = require('./rss/dezeen/dezeen')
+const FiveThirtyEight = require('./rss/fiveThirtyEight/fiveThirtyEight')
+const Politico = require('./rss/politico/politico')
 const FootballData = require('./footballData/index')
 
 const init = async () => {
@@ -31,6 +33,8 @@ const init = async () => {
   const footballData = new FootballData()
   const archDaily = new ArchDaily()
   const dezeen = new Dezeen()
+  const fiveThirtyEight = new FiveThirtyEight()
+  const politico = new Politico()
 
   const port = process.env.PORT || 8080
 
@@ -70,15 +74,6 @@ const init = async () => {
     }
   })
 
-  app.get('/api/sports/data/next-games', cache(10), async (req, res) => {
-    try {
-      const matches = await footballData.getMatchdayMatches()
-      res.send(matches)
-    } catch(err) {
-      console.log(err)
-    }
-  })
-
   app.get('/api/architecture/archDaily', cache(10), async (req, res) => {
     try {
       const articles = await archDaily.getAll()
@@ -97,8 +92,18 @@ const init = async () => {
     }
   })
 
-  app.get('/api/politics/spiegel', cache(10), async (req, res) => {
+  app.get('/api/germany/spiegel', cache(10), async (req, res) => {
     const articles = await spiegel.getTop()
+    res.send(articles)
+  })
+
+  app.get('/api/germany/sueddeutsche', cache(10), async (req, res) => {
+    const articles = await sueddeutsche.getTop()
+    res.send(articles)
+  })
+
+  app.get('/api/germany/neuesDeutschland', cache(10), async (req, res) => {
+    const articles = await neuesDeutschland.getTop()
     res.send(articles)
   })
 
@@ -107,24 +112,19 @@ const init = async () => {
     res.send(articles)
   })
 
-  app.get('/api/politics/sueddeutsche', cache(10), async (req, res) => {
-    const articles = await sueddeutsche.getTop()
-    res.send(articles)
-  })
-
-  app.get('/api/politics/neuesDeutschland', cache(10), async (req, res) => {
-    const articles = await neuesDeutschland.getTop()
-    res.send(articles)
-  })
-
   app.get('/api/politics/washingtonPost', cache(10), async (req, res) => {
     const articles = await washingtonPost.getTop()
     res.send(articles)
   })
 
-  app.get('/api/tagesschauVideo', cache(10), async (req, res) => {
-    const video = await tagesschau.getVideo()
-    res.send(video)
+  app.get('/api/politics/politico', cache(10), async (req, res) => {
+    const articles = await politico.getPolitics()
+    res.send(articles)
+  })
+
+  app.get('/api/politics/fivethirtyeight', cache(10), async (req, res) => {
+    const articles = await fiveThirtyEight.getPolitics()
+    res.send(articles)
   })
 
   app.get('/api/sports/spiegel', cache(10), async (req, res) => {
@@ -145,6 +145,15 @@ const init = async () => {
   app.get('/api/sports/transfermarkt', cache(10), async (req, res) => {
     const articles = await transfermarkt.getAll()
     res.send(articles)
+  })
+
+  app.get('/api/sports/data/next-games', cache(10), async (req, res) => {
+    try {
+      const matches = await footballData.getMatchdayMatches()
+      res.send(matches)
+    } catch(err) {
+      console.log(err)
+    }
   })
 
   app.get('/', (req, res) => {
