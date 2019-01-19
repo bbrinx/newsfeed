@@ -7,7 +7,7 @@ class Standings extends Component {
       <div className="standings">
         {this.props.data.map((match, index) => {
           const homeTeamScore = match.score.fullTime.homeTeam ? match.score.fullTime.homeTeam : '-' 
-          const awayTeamScore = match.score.fullTime.awayTeam ? match.score.fullTime.homeTeam : '-'
+          const awayTeamScore = match.score.fullTime.awayTeam ? match.score.fullTime.awayTeam : '-'
           return (
             <div className="match" key={index}>
               <p className="team home">{match.homeTeam.name}</p>
