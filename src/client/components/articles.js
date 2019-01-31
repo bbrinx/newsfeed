@@ -6,6 +6,7 @@ class Articles extends Component {
     return (
       <div className="articles">
         {this.props.feed.map((publisher, index) => {
+          if(!publisher.articles) return null
           return (
             <div className="publisher" key={index}>
               <h2><span>{publisher.publisher}</span></h2>

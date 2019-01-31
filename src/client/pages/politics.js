@@ -6,7 +6,7 @@ class Politics extends Component {
     super();
     this.state = {
       feed: [],
-      newspapers: ['nytimes', 'washingtonPost', 'fiveThirtyEight', 'politico']
+      newspapers: ['nytimes', 'washingtonPost', 'fiveThirtyEight']
     };
   }
 
