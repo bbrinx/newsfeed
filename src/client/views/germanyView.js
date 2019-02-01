@@ -9,11 +9,8 @@ class GermanyView extends Component {
   }
 
   render() {
-    console.log('status', this.props.status)
     return (
-      this.props.status === 'pending' ? (
-        <Spinner />
-      ) : (<Articles feed={this.props.articles} />)
+      this.props.status === 'pending' ? <Spinner /> : <Articles feed={this.props.articles} />
     );
   }
 }

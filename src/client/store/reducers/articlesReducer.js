@@ -1,4 +1,3 @@
-import { Reducer } from 'redux';
 import { articlesActionTypes } from '../actions';
 
 const Status = {

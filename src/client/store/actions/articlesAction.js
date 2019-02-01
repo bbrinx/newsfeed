@@ -23,7 +23,7 @@ export const fetchArticles = (category) => {
       const body = await response.json();
       dispatch(fetchArticlesSuccessAction(body))
     } catch(error) {
-      console.log('THE ERROR IS: ', error)
+      console.log('Error', error)
       dispatch(fetchArticlesFailureAction())
     }
   }
