@@ -2,9 +2,6 @@ export const articlesActionTypes = {
   FETCH_ARTICLES: '@@articles/FETCH_ARTICLES',
   FETCH_ARTICLES_SUCCESS: '@@articles/FETCH_ARTICLES_SUCCESS',
   FETCH_ARTICLES_FAILURE: '@@articles/FETCH_ARTICLES_FAILURE',
-  // LOAD_GERMANY = '@@articles/LOAD_GERMANY',
-  // LOAD_SPORTS = '@@articles/LOAD_SPORTS',
-  // LOAD_ARCHITECTURE = '@@articles/LOAD_ARCHITECTURE',
 }
 
 const fetchArticlesAction = () => {
@@ -25,7 +22,7 @@ export const fetchArticles = (category) => {
       if (!response.ok) throw Error(response.statusText);
       const body = await response.json();
       dispatch(fetchArticlesSuccessAction(body))
-    } catch(err) {
+    } catch(error) {
       console.log('THE ERROR IS: ', error)
       dispatch(fetchArticlesFailureAction())
     }
