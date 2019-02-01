@@ -5,9 +5,8 @@ class NeuesDeutschlandParser extends Parser {
   
   getImageUrl($) {
     try {
-      const imageId = $('.Image').find('img').attr('src').split('/').slice(-1)[0];
-      const url = 'https://www.neues-deutschland.de/img/800/' + imageId;
-      return imageId ? url : null;
+      const imageUrl = $('[property="og:image"]').attr('content');
+      return imageUrl;
     } catch(err) {
       console.log(err)
     }

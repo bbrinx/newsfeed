@@ -1,12 +1,12 @@
 const Parser = require('../parser')
 
 class SpiegelParser extends Parser {
-  
   getImageUrl($) {
     try {
-      return $('#js-article-top-wide-asset').find('img').attr('src');
+      const imageUrl = $('[property="og:image"]').attr('content');
+      return imageUrl;
     } catch(err) {
-      console.log(`Spiegel: ${err}`)
+      console.log(err)
     }
   };
 }

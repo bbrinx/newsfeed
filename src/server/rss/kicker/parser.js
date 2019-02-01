@@ -4,8 +4,8 @@ class KickerParser extends Parser {
   
   getImageUrl($) {
     try {
-      const anchor = $('.img-r,.img-l').find('a')
-      return anchor ? anchor.attr('href') : null
+      const imageUrl = $('[property="og:image"]').attr('content');
+      return imageUrl;
     } catch(err) {
       console.log(`Kicker: ${err}`)
     }
