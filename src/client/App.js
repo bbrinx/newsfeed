@@ -1,28 +1,36 @@
 import React, { Component } from 'react';
-import { Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+
+import { Provider } from 'react-redux';
+import configureStore from './store/config';
+
 import Header from './components/header'
-import Politics from './pages/politics'
-import Sports from './pages/sports'
-import Architecture from './pages/architecture'
-import Germany from './pages/germany'
+import PoliticsContainer from './containers/politicsContainer'
+import Sports from './containers/sportsContainer'
+import Architecture from './containers/architectureContainer'
+import Germany from './containers/germanyContainer'
 import './App.css';
 
 class App extends Component {
-
   render() {
+    const store = configureStore();
     return (
-      <div className="newsfeed">
-        <Header />
-        <div className="content-wrapper">
-          <div className="content">
-            <Route exact path="/" component={Politics} />
-            <Route path="/politics" component={Politics} />
-            <Route path="/germany" component={Germany} />
-            <Route path="/sports" component={Sports} />
-            <Route path="/architecture" component={Architecture} />
+      <Provider store={store}>
+        <Router>
+          <div className="newsfeed">
+            <Header />
+            <div className="content-wrapper">
+              <div className="content">
+                <Route exact path="/" component={PoliticsContainer} />
+                <Route path="/politics" component={PoliticsContainer} />
+                <Route path="/germany" component={Germany} />
+                <Route path="/sports" component={Sports} />
+                <Route path="/architecture" component={Architecture} />
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
+        </Router>
+      </Provider>
     );
   }
 }
