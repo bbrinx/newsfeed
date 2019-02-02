@@ -4,7 +4,8 @@ class SpiegelParser extends Parser {
   getImageUrl($) {
     try {
       const imageUrl = $('[property="og:image"]').attr('content');
-      return imageUrl;
+      const safeImageUrl = imageUrl.replace('http', 'https'); // Prevent Mixed Content
+      return safeImageUrl;
     } catch(err) {
       console.log(err)
     }
