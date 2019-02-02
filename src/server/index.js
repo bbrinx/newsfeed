@@ -21,6 +21,7 @@ const init = async () => {
     // eslint-disable-next-line no-console
     console.log(`Please open http://localhost:${port} in your browser.`)
   })
+  server.timeout = 2000;
 
   app.use(express.static(path.resolve('app')));
 
