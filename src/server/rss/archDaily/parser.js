@@ -27,7 +27,7 @@ class ArchDailyParser extends Parser {
       const $ = cheerio.load(htmlTag)
       return $.text();
     } catch(err) {
-      console.log(err)
+      console.log(`Archdaily: ${err}`)
     }
   }
 }

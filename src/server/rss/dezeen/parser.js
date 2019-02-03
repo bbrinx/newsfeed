@@ -28,7 +28,7 @@ class DezeenParser extends Parser {
       const $ = cheerio.load(htmlTag)
       return $.text();
     } catch(err) {
-      console.log(err)
+      console.log(`Dezeen: ${err}`)
     }
   }
 
@@ -38,7 +38,7 @@ class DezeenParser extends Parser {
       const imageSrcset =  $('img').attr('srcset')
       return imageSrcset
     } catch(err) {
-      console.log(err)
+      console.log(`Dezeen: ${err}`)
     }
   };
 }

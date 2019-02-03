@@ -26,7 +26,7 @@ class SueddeutscheParser extends Parser {
       const imageSrcset = $('.asset-image__image-tag').attr('srcset')
       return imageSrcset
     } catch(err) {
-      console.log(err)
+      console.log(`Sueddeutsche Zeitung: ${err}`)
     }
   };
 }

@@ -8,7 +8,7 @@ class NeuesDeutschlandParser extends Parser {
       const imageUrl = $('[property="og:image"]').attr('content');
       return imageUrl;
     } catch(err) {
-      console.log(err)
+      console.log(`Neues Deutschland: ${err}`)
     }
   };
 }

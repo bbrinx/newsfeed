@@ -3,7 +3,6 @@ const Parser = require('../parser')
 class NytimesParser extends Parser {
   getImageUrl($) {
     try {
-      console.log('testi', $)
       const imageSrcset = $('figure').find('img').attr('srcset');
       if(!imageSrcset) {
         const thumbnail = $('[name=image]').attr('content');
@@ -11,7 +10,7 @@ class NytimesParser extends Parser {
       }
       return imageSrcset
     } catch(err) {
-      console.log(err)
+      console.log(`New York Times: ${err}`)
     }
   };
 }

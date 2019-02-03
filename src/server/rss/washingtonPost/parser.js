@@ -6,7 +6,7 @@ class WashingtonPostParser extends Parser {
       const imageUrl = $('[property="og:image"]').attr('content');
       return imageUrl;
     } catch(err) {
-      console.log(err)
+      console.log(`Washington Post: ${err}`)
     }
   };
 }
