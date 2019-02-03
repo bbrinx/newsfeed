@@ -42,5 +42,5 @@ module.exports = {
 
 const send = async (url) => {
   const articles = await parser.parseRss(url);
-  return {publisher: 'FiveThiryEight', articles}
+  return {publisher: 'FiveThirtyEigth', articles}
 } 
