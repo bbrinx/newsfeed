@@ -6,9 +6,8 @@ const cache = require('../utils/cache')
 
 router.get('/', cache(10), async (req, res) => {
   try {
-    const nytArticles = await nyt.getTop()
-    const wapoArticles = await wapo.getTop()
-    res.send([nytArticles, wapoArticles])
+    const articles = await Promise.all([nyt.getTop(), wapo.getTop()])
+    res.send(articles)
   } catch(err) {
     console.log(err)
   }

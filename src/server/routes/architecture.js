@@ -6,9 +6,8 @@ const cache = require('../utils/cache')
 
 router.get('/', cache(10), async (req, res) => {
   try {
-    const archDailyArticles = await archDaily.getAll()
-    const dezeenArticles = await dezeen.getAll()
-    res.send([archDailyArticles, dezeenArticles])
+    const articles = await Promise.all([archDaily.getAll(), dezeen.getAll()])
+    res.send(articles)
   } catch(err) {
     console.log(err)
   }

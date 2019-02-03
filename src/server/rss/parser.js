@@ -12,6 +12,7 @@ class Parser {
       const res = await rssParser.parseURL(rss)
       const feed = res.items.slice(0, 5).filter(item => item.title !== '').map(async (item) => {
         const htmlBody = await this.getContent(item.link)
+        if(!htmlBody) return {}
         const imageUrl = await this.getImageUrl(htmlBody)
         return {
           title: item.title,

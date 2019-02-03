@@ -7,10 +7,8 @@ const cache = require('../utils/cache')
 
 router.get('/', cache(10), async (req, res) => {
   try {
-    const kickerArticles = await kicker.getSoccer()
-    const spiegelArticles = await spiegel.getSoccer()
-    const elfFreundeArticles = await elfFreunde.getAll()
-    res.send([kickerArticles, spiegelArticles, elfFreundeArticles])
+    const articles = await Promise.all([kicker.getSoccer(), spiegel.getSoccer(), elfFreunde.getAll()])
+    res.send(articles)
   } catch(err) {
     console.log(err)
   }
