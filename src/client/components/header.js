@@ -13,13 +13,13 @@ class Header extends Component {
   }
 
   handleClick() {
-    this.setState({menuIsOpen: !this.state.menuIsOpen})
+    this.setState({ menuIsOpen: !this.state.menuIsOpen })
     document.body.style.overflow = this.state.menuIsOpen ? "auto" : "hidden";
   }
 
   render() {
     return (
-      <header className={`newsfeed-header ${this.state.menuIsOpen ? 'open': ''}`}>
+      <header className={`newsfeed-header ${this.state.menuIsOpen ? 'open' : ''}`}>
         <div className="header-wrapper">
           <h1 className="newsfeed-title"><Link to="/">Newsfeed</Link></h1>
           <div className="hamburger" onClick={this.handleClick}>
@@ -34,6 +34,7 @@ class Header extends Component {
             <li><NavLink to="/germany">Germany</NavLink></li>
             <li><NavLink to="/sports">Sports</NavLink></li>
             <li><NavLink to="/architecture">Architecture</NavLink></li>
+            <li><NavLink to="/food">Food</NavLink></li>
           </ul>
         </nav>
         <nav className="mobile" onClick={this.handleClick}>
@@ -42,6 +43,7 @@ class Header extends Component {
             <li><NavLink to="/germany">Germany</NavLink></li>
             <li><NavLink to="/sports">Sports</NavLink></li>
             <li><NavLink to="/architecture">Architecture</NavLink></li>
+            <li><NavLink to="/food">Food</NavLink></li>
           </ul>
         </nav>
       </header>

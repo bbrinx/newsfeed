@@ -9,6 +9,7 @@ import PoliticsContainer from './containers/politicsContainer'
 import Sports from './containers/sportsContainer'
 import Architecture from './containers/architectureContainer'
 import Germany from './containers/germanyContainer'
+import Food from './containers/foodContainer'
 import './App.css';
 
 class App extends Component {
@@ -26,6 +27,7 @@ class App extends Component {
                 <Route path="/germany" component={Germany} />
                 <Route path="/sports" component={Sports} />
                 <Route path="/architecture" component={Architecture} />
+                <Route path="/food" component={Food} />
               </div>
             </div>
           </div>

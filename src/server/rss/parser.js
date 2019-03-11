@@ -6,13 +6,13 @@ const rssParser = new RssParser();
 
 
 class Parser {
-  
+
   async parseRss(rss) {
     try {
       const res = await rssParser.parseURL(rss)
       const feed = res.items.slice(0, 5).filter(item => item.title !== '').map(async (item) => {
         const htmlBody = await this.getContent(item.link)
-        if(!htmlBody) return {}
+        if (!htmlBody) return {}
         const imageUrl = await this.getImageUrl(htmlBody)
         return {
           title: item.title,
@@ -23,7 +23,7 @@ class Parser {
         };
       });
       return await Promise.all(feed);
-    } catch(err) {
+    } catch (err) {
       console.log(err)
     }
   };
@@ -32,7 +32,7 @@ class Parser {
     try {
       const body = await axios.get(articleUrl)
       return cheerio.load(body.data);
-    } catch(err) {
+    } catch (err) {
       console.log(err);
     }
   };
@@ -40,7 +40,7 @@ class Parser {
   async getImageUrl($) {
     try {
       return $('figure').find('img').attr('src');
-    } catch(err) {
+    } catch (err) {
       console.log(err)
     }
   };

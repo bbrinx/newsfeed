@@ -8,12 +8,13 @@ const politics = require('./routes/politics');
 const germany = require('./routes/germany');
 const sports = require('./routes/sports');
 const architecture = require('./routes/architecture');
+const food = require('./routes/food');
 
 const init = async () => {
   const app = express()
   const server = http.Server(app)
   const footballData = new FootballData()
-  
+
 
   const port = process.env.PORT || 8080
 
@@ -29,6 +30,7 @@ const init = async () => {
   app.use('/api/germany', germany);
   app.use('/api/sports', sports);
   app.use('/api/architecture', architecture);
+  app.use('/api/food', food);
   // process.on('uncaughtException', function (err) {
   //   console.log(err);
   // });
@@ -46,8 +48,8 @@ const init = async () => {
     res.sendFile(path.resolve('app', 'index.html'));
   });
 
-  app.get('*', function(req, res) {
-    res.sendFile(path.resolve('app', 'index.html'), function(err) {
+  app.get('*', function (req, res) {
+    res.sendFile(path.resolve('app', 'index.html'), function (err) {
       if (err) {
         res.status(500).send(err)
       }
