@@ -9,7 +9,7 @@ Reading the news in the morning can be overwhelming, distracting and stressful.
 Simple Newsfeed is an rss reader that reflects my morning routine, while focusing on simplicity and readability. 
 
 # Technology
-The project is fully written in Javascript, using an Express resful API, and React as a frontend framework.  
+The project is fully written in Javascript, using Express for a restful API and React as a frontend framework.  
 
 # License
 

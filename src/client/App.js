@@ -5,6 +5,7 @@ import { Provider } from 'react-redux';
 import configureStore from './store/config';
 
 import Header from './components/header'
+import HomeContainer from './containers/homeContainer'
 import PoliticsContainer from './containers/politicsContainer'
 import Sports from './containers/sportsContainer'
 import Architecture from './containers/architectureContainer'
@@ -22,7 +23,7 @@ class App extends Component {
             <Header />
             <div className="content-wrapper">
               <div className="content">
-                <Route exact path="/" component={PoliticsContainer} />
+                <Route exact path="/" component={HomeContainer} />
                 <Route path="/politics" component={PoliticsContainer} />
                 <Route path="/germany" component={Germany} />
                 <Route path="/sports" component={Sports} />

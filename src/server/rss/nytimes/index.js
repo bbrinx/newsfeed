@@ -2,35 +2,45 @@ const Parser = require('./parser')
 const parser = new Parser()
 
 module.exports = {
-  getTop: function() {
+  getTop: function () {
     const url = 'https://www.nytimes.com/services/xml/rss/nyt/HomePage.xml';
     return send(url);
   },
-  
-  getNewYork: function() {
+
+  getNewYork: function () {
     const url = 'https://www.nytimes.com/services/xml/rss/nyt/NYRegion.xml';
     return send(url);
   },
-  
-  getWorld: function() {
+
+  getWorld: function () {
     const url = 'https://www.nytimes.com/services/xml/rss/nyt/World.xml';
     return send(url);
   },
-  
-  getEurope: function() {
+
+  getEurope: function () {
     const url = 'https://www.nytimes.com/services/xml/rss/nyt/Europe.xml';
     return send(url);
   },
-  
-  getPolitics: function() {
+
+  getPolitics: function () {
     const url = 'https://www.nytimes.com/services/xml/rss/nyt/Politics.xml';
+    return send(url);
+  },
+
+  getMostViewed: function () {
+    const url = 'https://www.nytimes.com/services/xml/rss/nyt/MostViewed.xml';
+    return send(url);
+  },
+
+  getMostShared: function () {
+    const url = 'https://www.nytimes.com/services/xml/rss/nyt/MostShared.xml';
     return send(url);
   },
 }
 
 const send = async (url) => {
   const articles = await parser.parseRss(url);
-  return {publisher: 'New York Times', articles}
-} 
+  return { publisher: 'New York Times', articles }
+}
 
 

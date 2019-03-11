@@ -4,6 +4,7 @@ const path = require('path')
 const express = require('express')
 const FootballData = require('./footballData/index')
 
+const home = require('./routes/home');
 const politics = require('./routes/politics');
 const germany = require('./routes/germany');
 const sports = require('./routes/sports');
@@ -26,6 +27,7 @@ const init = async () => {
 
   app.use(express.static(path.resolve('app')));
 
+  app.use('/api/home', home);
   app.use('/api/politics', politics);
   app.use('/api/germany', germany);
   app.use('/api/sports', sports);
